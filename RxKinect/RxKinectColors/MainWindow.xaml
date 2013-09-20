@@ -1,0 +1,31 @@
+﻿<Window x:Class="RxKinect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+		Width="640" Height="480" 
+		Loaded="Window_Loaded"
+      Closed="Window_Closed">
+	<Grid>
+		<Image Name="_colorImage" Width="640" Height="480" />
+		<StackPanel HorizontalAlignment="Right">
+         <Rectangle Height="100" Width="100" Name="_rectPink" Fill="#FFF857A7" MouseUp="rectangle_MouseUp"/>
+         <Rectangle Height="100" Width="100" Name="_rectOrange" Fill="DarkOrange" MouseUp="rectangle_MouseUp"/>
+         <Rectangle Height="100" Width="100" Name="_rectRed" Fill="Red" MouseUp="rectangle_MouseUp" />
+         <Rectangle Height="100" Width="100" Name="_rectGreen" Fill="Green" MouseUp="rectangle_MouseUp"/>
+		</StackPanel>
+
+      <Grid>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+         </Grid.RowDefinitions> 
+         
+      <Canvas Name="MainCanvas" Grid.Row="0">
+            <Ellipse Canvas.Left="25" Canvas.Top="150" Name="_leftEllipse" Stroke="{Binding SetColor}" Height="40" Width="40" Fill="White" StrokeThickness="4" />
+         <Ellipse Canvas.Left="100" Canvas.Top="150" Name="_rightEllipse" Fill="{Binding SetColor}" StrokeThickness="2"  Height="40" Width="40" Stroke="White" />
+		</Canvas>
+      <TextBlock Grid.Row="1" Name="_infoBox" Foreground="Cyan" FontWeight="Bold" FontSize="36" Background="Transparent" Padding="25,10,10,10"/>
+      </Grid>
+         
+	</Grid>
+</Window>
